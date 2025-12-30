@@ -26,24 +26,25 @@ Will you always be mine? 💍❤️
 
 <button onclick="celebrate()">YES ❤️</button>
 
-<div id="celebration" style="display:none;">
-  <h2>She said YES ❤️🎉</h2>
-  <p>This moment is forever.</p>
+<div id="celebration" class="celebration">
+  <h1>🎉 SHE SAID YES ❤️ 🎉</h1>
+  <p>This love is forever 💖</p>
 </div>
+
 
 
 <script>
 function celebrate() {
   document.getElementById("celebration").style.display = "block";
 
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 120; i++) {
     let heart = document.createElement("div");
-    heart.innerHTML = "❤️";
+    heart.innerHTML = ["❤️","💖","💘","🎉","✨"][Math.floor(Math.random()*5)];
     heart.style.position = "fixed";
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "100vh";
-    heart.style.fontSize = "24px";
-    heart.style.animation = "floatUp 3s linear forwards";
+    heart.style.top = Math.random() * 100 + "vh";
+    heart.style.fontSize = Math.random() * 30 + 20 + "px";
+    heart.style.animation = "explode 3s linear forwards";
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 3000);
@@ -51,8 +52,10 @@ function celebrate() {
 }
 </script>
 
+
 </body>
 </html>
+
 
 
 
