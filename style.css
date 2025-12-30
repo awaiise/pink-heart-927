@@ -9,8 +9,12 @@ body {
 }
 
 .container {
-  padding-top: 50px;
+  max-width: 800px;          /* controls text width */
+  margin: 0 auto;            /* centers the content */
+  padding: 40px 20px;
+  line-height: 1.8;          /* space between lines */
 }
+
 
 button {
   background: red;
@@ -52,3 +56,4 @@ button {
     opacity: 0;
   }
 }
+
