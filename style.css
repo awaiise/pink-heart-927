@@ -1,41 +1,43 @@
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom, pink, hotpink);
   font-family: Arial, sans-serif;
-  text-align: center;
   color: white;
-  overflow: hidden;
+  text-align: center;
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 800px;          /* controls text width */
-  margin: 0 auto;            /* centers the content */
+  max-width: 800px;
+  margin: auto;
   padding: 40px 20px;
-  line-height: 1.8;          /* space between lines */
+  line-height: 1.8;
 }
 
+h1 {
+  font-size: 36px;
+}
+
+p {
+  font-size: 20px;
+  white-space: normal;
+}
 
 button {
   background: red;
   color: white;
   border: none;
-  padding: 15px 25px;
+  padding: 15px 30px;
   font-size: 18px;
   border-radius: 30px;
   cursor: pointer;
   margin: 10px;
 }
 
-.no {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.slideshow img {
-  width: 250px;
+img {
+  width: 280px;
   border-radius: 20px;
-  margin-top: 20px;
 }
 
 /* Floating Hearts */
@@ -43,7 +45,6 @@ button {
   position: absolute;
   color: red;
   animation: float 6s linear infinite;
-  font-size: 20px;
 }
 
 @keyframes float {
@@ -56,24 +57,8 @@ button {
     opacity: 0;
   }
 }
-p {
-  font-size: 20px;
-  text-align: center;
-  white-space: normal;       /* IMPORTANT: allows line breaks */
-  word-wrap: break-word;     /* prevents cutting */
-}
 
 @media (max-width: 600px) {
-  p {
-    font-size: 18px;
-  }
-
-  .container {
-    padding: 20px;
-  }
+  h1 { font-size: 28px; }
+  p { font-size: 18px; }
 }
-a, button {
-  text-decoration: none;
-}
-
-
