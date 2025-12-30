@@ -12,29 +12,26 @@
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
-
 <div class="container">
-<h1>My Promise To You ❤️</h1>
+  <h1>My Promise To You ❤️</h1>
 
-<p>
-I promise to love you endlessly.<br>
-I promise to stand by you in every moment.<br>
-I promise to choose you every single day.<br><br>
+  <p>
+    I promise to love you endlessly.<br>
+    I promise to stand by you in every moment.<br>
+    I promise to choose you every single day.<br><br>
 
-Will you always be mine? 💍❤️
-</p>
+    Will you always be mine? 💍❤️
+  </p>
 
-<button onclick="celebrate()">YES ❤️</button>
+  <!-- ONLY ONE YES BUTTON -->
+  <button onclick="startHearts()">YES ❤️</button>
+</div>
 
-<button onclick="startHearts()">YES ❤️</button>
-
-<div id="heartScreen"></div>
-
+<!-- HIDDEN CELEBRATION -->
+<div id="heartScreen">
   <h1>🎉 SHE SAID YES ❤️ 🎉</h1>
   <p>This love is forever 💖</p>
 </div>
-
-
 
 <script>
 function startHearts() {
@@ -42,7 +39,7 @@ function startHearts() {
   screen.style.display = "block";
 
   for (let i = 0; i < 150; i++) {
-    let heart = document.createElement("div");
+    const heart = document.createElement("div");
     heart.innerHTML = "❤️";
     heart.className = "pop-heart";
 
@@ -53,17 +50,15 @@ function startHearts() {
 
     screen.appendChild(heart);
 
-    setTimeout(() => {
-      heart.remove();
-    }, 4000);
+    setTimeout(() => heart.remove(), 4000);
   }
 }
 </script>
 
-
-
 </body>
+
 </html>
+
 
 
 
