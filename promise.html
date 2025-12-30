@@ -6,7 +6,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onclick="startMusic()">
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bgMusic" loop playsinline>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- MAIN CONTENT -->
   <div class="container">
@@ -23,14 +28,22 @@
     <button onclick="startHearts()">YES ❤️</button>
   </div>
 
-  <!-- FULL SCREEN CELEBRATION (HIDDEN BY DEFAULT) -->
+  <!-- FULL SCREEN CELEBRATION -->
   <div id="heartScreen">
     <div id="yesText">🎉 SHE SAID YES ❤️ 🎉</div>
   </div>
 
   <!-- SCRIPT -->
   <script>
+    function startMusic() {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play().catch(() => {});
+      }
+    }
+
     function startHearts() {
+      startMusic(); // ensure music plays
       const screen = document.getElementById("heartScreen");
       screen.style.display = "block";
 
@@ -46,11 +59,14 @@
 
         screen.appendChild(heart);
 
-        setTimeout(() => {
-          heart.remove();
-        }, 4000);
+        setTimeout(() => heart.remove(), 4000);
       }
     }
+
+    // Try autoplay once page loads
+    window.onload = () => {
+      startMusic();
+    };
   </script>
 
 </body>
