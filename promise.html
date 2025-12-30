@@ -1,75 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Promise ❤️</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>My Promise 💍</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body onclick="startMusic()">
+<body onclick="enableSound()" ontouchstart="enableSound()">
 
-  <!-- BACKGROUND MUSIC -->
-  <audio id="bgMusic" autoplay loop muted playsinline>
+<audio id="bgMusic" autoplay loop muted playsinline>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
+<div class="container">
+  <h1>Will you always be mine? ❤️</h1>
+  <button onclick="startHearts()">YES ❤️</button>
+</div>
 
-  <!-- MAIN CONTENT -->
-  <div class="container">
-    <h1>My Promise To You ❤️</h1>
+<div id="heartScreen">
+  <div id="yesText">SHE SAID YES ❤️🎉</div>
+</div>
 
-    <p>I promise to love you endlessly.</p>
-    <p>I promise to stand by you in every moment.</p>
-    <p>I promise to choose you every single day.</p>
+<script>
+let soundEnabled = false;
+function enableSound() {
+  if (!soundEnabled) {
+    const music = document.getElementById("bgMusic");
+    music.muted = false;
+    music.play().catch(()=>{});
+    soundEnabled = true;
+  }
+}
 
-    <br>
+function startHearts() {
+  enableSound();
+  const screen = document.getElementById("heartScreen");
+  screen.style.display = "block";
 
-    <p><strong>Will you always be mine? 💍❤️</strong></p>
-
-    <button onclick="startHearts()">YES ❤️</button>
-  </div>
-
-  <!-- FULL SCREEN CELEBRATION -->
-  <div id="heartScreen">
-    <div id="yesText">🎉 SHE SAID YES ❤️ 🎉</div>
-  </div>
-
-  <!-- SCRIPT -->
-  <script>
-    function startMusic() {
-      const music = document.getElementById("bgMusic");
-      if (music.paused) {
-        music.play().catch(() => {});
-      }
-    }
-
-    function startHearts() {
-      startMusic(); // ensure music plays
-      const screen = document.getElementById("heartScreen");
-      screen.style.display = "block";
-
-      for (let i = 0; i < 150; i++) {
-        const heart = document.createElement("div");
-        heart.className = "pop-heart";
-        heart.innerHTML = "❤️";
-
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = Math.random() * 100 + "vh";
-        heart.style.fontSize = Math.random() * 30 + 20 + "px";
-        heart.style.animationDuration = Math.random() * 2 + 2 + "s";
-
-        screen.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 4000);
-      }
-    }
-
-    // Try autoplay once page loads
-    window.onload = () => {
-      startMusic();
-    };
-  </script>
+  for (let i = 0; i < 150; i++) {
+    const heart = document.createElement("div");
+    heart.className = "pop-heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = Math.random() * 100 + "vh";
+    heart.style.fontSize = Math.random() * 30 + 20 + "px";
+    heart.style.animationDuration = Math.random() * 2 + 2 + "s";
+    screen.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
+  }
+}
+</script>
 
 </body>
 </html>
-
