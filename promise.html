@@ -32,7 +32,26 @@ Will you always be mine? 💍❤️
 </div>
 
 
-<script src="script.js"></script>
+<script>
+function celebrate() {
+  document.getElementById("celebration").style.display = "block";
+
+  for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "100vh";
+    heart.style.fontSize = "24px";
+    heart.style.animation = "floatUp 3s linear forwards";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 3000);
+  }
+}
+</script>
+
 </body>
 </html>
+
 
