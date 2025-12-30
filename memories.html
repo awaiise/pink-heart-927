@@ -2,34 +2,64 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>IMAGES I LOVE 💞</title>
+<title>Our Memories 💞</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
+<!-- BACKGROUND MUSIC -->
 <audio id="bgMusic" autoplay loop playsinline>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
-
 <div class="container">
-  <h1>IMAGES I LOVE 💞</h1>
+  <h1>I LOVE YOU JANAM 💖</h1>
 
-  <img id="slide" src="assets/photo1.jpg">
+  <!-- MEMORY IMAGE -->
+  <img id="memoryImg" src="assets/photo1.jpg" alt="Our Memory">
 
   <br><br>
-  <button onclick="nextSlide()">Next Memory 💫</button>
+
+  <!-- NEXT MEMORY BUTTON -->
+  <button id="nextBtn" onclick="nextMemory()">Next Memory 💫</button>
+
   <br><br>
-  <button onclick="location.href='letter.html'">Read My Letter 💌</button>
+
+  <!-- LETTER BUTTON (HIDDEN INITIALLY) -->
+  <button id="letterBtn" onclick="goLetter()" style="display:none;">
+    Read My Letter 💌
+  </button>
 </div>
 
-<script src="script.js"></script>
+<script>
+/* MEMORY IMAGES */
+const memories = [
+  "assets/photo1.jpg",
+  "assets/photo2.jpg",
+  "assets/photo3.jpg"
+];
+
+let current = 0;
+
+function nextMemory() {
+  current++;
+
+  if (current < memories.length) {
+    document.getElementById("memoryImg").src = memories[current];
+  }
+
+  // When last memory reached
+  if (current === memories.length - 1) {
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("letterBtn").style.display = "inline-block";
+  }
+}
+
+function goLetter() {
+  window.location.href = "letter.html";
+}
+</script>
+
 </body>
 </html>
-
-
-
-
-
