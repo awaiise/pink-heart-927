@@ -33,7 +33,6 @@
 </div>
 
 <script>
-/* MEMORY IMAGES */
 const memories = [
   "assets/photo1.jpg",
   "assets/photo2.jpg",
@@ -44,18 +43,21 @@ const memories = [
 ];
 
 let current = 0;
+const img = document.getElementById("memoryImg");
+const nextBtn = document.getElementById("nextBtn");
+const letterBtn = document.getElementById("letterBtn");
 
 function nextMemory() {
-  current++;
-
-  if (current < memories.length) {
-    document.getElementById("memoryImg").src = memories[current];
+  // if not last image, move forward
+  if (current < memories.length - 1) {
+    current++;
+    img.src = memories[current];
   }
 
-  // When last memory reached
+  // if now on last image
   if (current === memories.length - 1) {
-    document.getElementById("nextBtn").style.display = "none";
-    document.getElementById("letterBtn").style.display = "inline-block";
+    nextBtn.style.display = "none";
+    letterBtn.style.display = "inline-block";
   }
 }
 
@@ -64,6 +66,8 @@ function goLetter() {
 }
 </script>
 
+
 </body>
 </html>
+
 
