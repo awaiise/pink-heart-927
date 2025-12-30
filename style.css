@@ -40,38 +40,7 @@ img {
   border-radius: 20px;
 }
 
-/* Floating Hearts */
-.hearts span {
-  position: absolute;
-  color: red;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(100vh);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10vh);
-    opacity: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 { font-size: 28px; }
-  p { font-size: 18px; }
-}
-@keyframes floatUp {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-120vh);
-    opacity: 0;
-  }
-}
+/* Typing cursor */
 #cursor {
   font-weight: bold;
   font-size: 22px;
@@ -83,38 +52,41 @@ img {
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
-.celebration {
+
+/* FULL SCREEN HEART CELEBRATION */
+#heartScreen {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, hotpink, pink);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 105, 180, 0.2);
   z-index: 9999;
-  text-align: center;
-  padding-top: 150px;
+  overflow: hidden;
 }
 
-.celebration h1 {
-  font-size: 50px;
-  color: white;
+.pop-heart {
+  position: absolute;
+  animation: popFloat linear forwards;
 }
 
-.celebration p {
-  font-size: 24px;
-}
-
-@keyframes explode {
-  from {
-    transform: scale(0) translateY(0);
+@keyframes popFloat {
+  0% {
+    transform: scale(0);
     opacity: 1;
   }
-  to {
-    transform: scale(1.5) translateY(-150px);
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: translateY(-200px) scale(1);
     opacity: 0;
   }
 }
 
-
-
+/* Mobile */
+@media (max-width: 600px) {
+  h1 { font-size: 28px; }
+  p { font-size: 18px; }
+}
