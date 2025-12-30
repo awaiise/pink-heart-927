@@ -1,5 +1,5 @@
 let musicStarted = false;
-let photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+let photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"];
 let index = 0;
 
 function startMusic() {
@@ -28,3 +28,4 @@ setInterval(() => {
 
   setTimeout(() => heart.remove(), 6000);
 }, 300);
+
