@@ -8,9 +8,10 @@
 
 <body onclick="startMusic()">
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" autoplay loop>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
+
 
 <div class="hearts"></div>
 
@@ -18,7 +19,10 @@
   <h1>Happy Birthday My Love 🎂💖</h1>
   <p>You are my happiness, my peace, my everything.</p>
 
-  <button onclick="nextSlide()">💞 See Our Memories</button>
+  <button onclick="location.href='memories.html'">Our Memories 💞</button>
+<button onclick="location.href='letter.html'">My Letter 💌</button>
+<button onclick="location.href='promise.html'">My Promise 💍</button>
+
 
   <div class="slideshow">
     <img id="slide" src="assets/photo1.jpg">
@@ -33,3 +37,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
