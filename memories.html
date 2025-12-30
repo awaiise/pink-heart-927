@@ -6,54 +6,22 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body onclick="enableSound()" ontouchstart="enableSound()">
-
-<audio id="bgMusic" autoplay loop muted playsinline>
+<body>
+<audio autoplay loop>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
-  <h1>I LOVE YOU JANAM 💖</h1>
+<h1>Our Beautiful Memories 💖</h1>
 
-  <img id="slide" src="assets/photo1.jpg">
+<img id="slide" src="assets/photo1.jpg" width="300">
 
-  <br><br>
-  <button id="nextBtn" onclick="nextSlide()">Next Memory 💫</button>
-
-  <br><br>
-  <button id="letterBtn" style="display:none;" onclick="goLetter()">Read My Letter 💌</button>
+<br><br>
+<button onclick="nextSlide()">Next Memory 💫</button>
+<br><br>
+<button onclick="location.href='letter.html'">Read My Letter 💌</button>
 </div>
 
-<script>
-let soundEnabled = false;
-function enableSound() {
-  if (!soundEnabled) {
-    const music = document.getElementById("bgMusic");
-    music.muted = false;
-    music.play().catch(()=>{});
-    soundEnabled = true;
-  }
-}
-
-const photos = ["assets/photo1.jpg","assets/photo2.jpg","assets/photo3.jpg"];
-let index = 0;
-
-function nextSlide() {
-  enableSound();
-  index++;
-  if (index < photos.length) {
-    document.getElementById("slide").src = photos[index];
-  }
-  if (index === photos.length - 1) {
-    document.getElementById("nextBtn").style.display = "none";
-    document.getElementById("letterBtn").style.display = "inline-block";
-  }
-}
-
-function goLetter() {
-  window.location.href = "letter.html";
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
