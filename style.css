@@ -47,18 +47,20 @@ img {
   animation: float 6s linear infinite;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(100vh);
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
     opacity: 1;
   }
-  100% {
-    transform: translateY(-10vh);
+  to {
+    transform: translateY(-120vh);
     opacity: 0;
   }
 }
+
 
 @media (max-width: 600px) {
   h1 { font-size: 28px; }
   p { font-size: 18px; }
 }
+
