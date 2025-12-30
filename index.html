@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Happy Birthday My Love ❤️</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Happy Birthday My Love ❤️</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body onclick="enableSound()" ontouchstart="enableSound()">
 
-<!-- BACKGROUND MUSIC -->
-<audio id="bgMusic" autoplay loop muted playsinline>
-  <source src="assets/music.mp3" type="audio/mpeg">
-</audio>
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bgMusic" autoplay loop muted playsinline>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
 
-<div class="container">
-  <h1>Happy Birthday My Love 🎂💖</h1>
-  <p>You are my happiness, my peace, my everything.</p>
+  <div class="container">
+    <h1>Happy Birthday My Love 🎂💖</h1>
+    <p>You are my happiness, my peace, my everything.</p>
 
-  <button onclick="goMemories()">Start Our Memories 💞</button>
-</div>
+    <button onclick="goMemories()">Start Our Memories 💞</button>
+  </div>
 
-<script>
-let soundEnabled = false;
+  <script>
+    let soundEnabled = false;
 
-function enableSound() {
-  if (!soundEnabled) {
-    const music = document.getElementById("bgMusic");
-    music.muted = false;
-    music.play().catch(() => {});
-    soundEnabled = true;
-  }
-}
+    function enableSound() {
+      if (!soundEnabled) {
+        const music = document.getElementById("bgMusic");
+        music.muted = false;
+        music.play().catch(() => {});
+        soundEnabled = true;
+      }
+    }
 
-function goMemories() {
-  enableSound();
-  window.location.href = "memories.html";
-}
-</script>
+    function goMemories() {
+      enableSound();
+      window.location.href = "memories.html";
+    }
+  </script>
 
 </body>
 </html>
