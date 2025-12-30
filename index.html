@@ -6,35 +6,30 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body onclick="enableSound()" ontouchstart="enableSound()">
+<body onclick="startMusic()">
 
-<audio id="bgMusic" autoplay loop muted playsinline>
+<audio id="bgMusic" loop>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
+
+<div class="hearts"></div>
 
 <div class="container">
   <h1>Happy Birthday My Love 🎂💖</h1>
   <p>You are my happiness, my peace, my everything.</p>
-  <button onclick="goMemories()">Start Our Memories 💞</button>
+
+  <button onclick="nextSlide()">💞 See Our Memories</button>
+
+  <div class="slideshow">
+    <img id="slide" src="assets/photo1.jpg">
+  </div>
+
+  <h2>Will you always be mine? 💍</h2>
+
+  <button onclick="yesAnswer()">YES ❤️</button>
+  <button class="no">NO 😢</button>
 </div>
 
-<script>
-let soundEnabled = false;
-
-function enableSound() {
-  if (!soundEnabled) {
-    const music = document.getElementById("bgMusic");
-    music.muted = false;
-    music.play().catch(()=>{});
-    soundEnabled = true;
-  }
-}
-
-function goMemories() {
-  enableSound();
-  window.location.href = "memories.html";
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
