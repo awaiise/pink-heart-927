@@ -16,7 +16,7 @@
 <div class="container">
 <h1>My Forever Love ❤️</h1>
 
-<p id="typedText"></p>
+<p id="typedText"><span id="cursor">|</span></p>
 
 
 <button onclick="location.href='promise.html'">One Last Question 💍</button>
@@ -49,13 +49,19 @@ and my forever 🥰💞💖.
 
 let i = 0;
 const speed = 40;
+const typedText = document.getElementById("typedText");
+const cursor = document.getElementById("cursor");
 
 function typeWriter() {
   if (i < text.length) {
-    document.getElementById("typedText").innerHTML +=
+    cursor.remove();
+    typedText.innerHTML +=
       text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+    typedText.appendChild(cursor);
     i++;
     setTimeout(typeWriter, speed);
+  } else {
+    cursor.style.display = "none"; // stop cursor at end
   }
 }
 
@@ -63,8 +69,10 @@ typeWriter();
 </script>
 
 
+
 </body>
 </html>
+
 
 
 
