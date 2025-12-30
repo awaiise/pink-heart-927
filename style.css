@@ -56,4 +56,20 @@ button {
     opacity: 0;
   }
 }
+p {
+  font-size: 20px;
+  text-align: center;
+  white-space: normal;       /* IMPORTANT: allows line breaks */
+  word-wrap: break-word;     /* prevents cutting */
+}
+
+@media (max-width: 600px) {
+  p {
+    font-size: 18px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+}
 
