@@ -6,50 +6,22 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body onclick="enableSound()" ontouchstart="enableSound()">
-
-<audio id="bgMusic" autoplay loop muted playsinline>
+<body>
+<audio autoplay loop>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
-  <h1>Will you always be mine? ❤️</h1>
-  <button onclick="startHearts()">YES ❤️</button>
+<h1>My Promise To You ❤️</h1>
+
+<p>
+I promise to stand by you in every moment.<br>
+I promise to respect you, protect you, and love you endlessly.<br><br>
+
+Will you always be mine? 💍❤️
+</p>
+
+<button onclick="alert('Forever ❤️')">YES ❤️</button>
 </div>
-
-<div id="heartScreen">
-  <div id="yesText">SHE SAID YES ❤️🎉</div>
-</div>
-
-<script>
-let soundEnabled = false;
-function enableSound() {
-  if (!soundEnabled) {
-    const music = document.getElementById("bgMusic");
-    music.muted = false;
-    music.play().catch(()=>{});
-    soundEnabled = true;
-  }
-}
-
-function startHearts() {
-  enableSound();
-  const screen = document.getElementById("heartScreen");
-  screen.style.display = "block";
-
-  for (let i = 0; i < 150; i++) {
-    const heart = document.createElement("div");
-    heart.className = "pop-heart";
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = Math.random() * 100 + "vh";
-    heart.style.fontSize = Math.random() * 30 + 20 + "px";
-    heart.style.animationDuration = Math.random() * 2 + 2 + "s";
-    screen.appendChild(heart);
-    setTimeout(()=>heart.remove(),4000);
-  }
-}
-</script>
-
 </body>
 </html>
