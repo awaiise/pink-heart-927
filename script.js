@@ -1,12 +1,3 @@
-let musicStarted = false;
-
-function startMusic() {
-  if (!musicStarted) {
-    document.getElementById("bgMusic").play();
-    musicStarted = true;
-  }
-}
-
 // Slideshow
 let photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
 let index = 0;
