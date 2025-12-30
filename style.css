@@ -1,3 +1,4 @@
+/* ===== GLOBAL STYLES ===== */
 body {
   margin: 0;
   min-height: 100vh;
@@ -24,6 +25,7 @@ p {
   white-space: normal;
 }
 
+/* ===== BUTTON ===== */
 button {
   background: red;
   color: white;
@@ -35,12 +37,17 @@ button {
   margin: 10px;
 }
 
+button:hover {
+  background: darkred;
+}
+
+/* ===== IMAGES ===== */
 img {
   width: 280px;
   border-radius: 20px;
 }
 
-/* Typing cursor */
+/* ===== TYPING CURSOR ===== */
 #cursor {
   font-weight: bold;
   font-size: 22px;
@@ -53,24 +60,50 @@ img {
   100% { opacity: 1; }
 }
 
-/* FULL SCREEN HEART CELEBRATION */
+/* ===== FULL SCREEN HEART CELEBRATION ===== */
 #heartScreen {
-  display: none;
+  display: none; /* VERY IMPORTANT: hidden before YES */
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 105, 180, 0.2);
+  background: rgba(255, 105, 180, 0.25);
   z-index: 9999;
   overflow: hidden;
 }
 
+/* Center text */
+#yesText {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  animation: popIn 1s ease forwards;
+}
+
+/* Text pop animation */
+@keyframes popIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Hearts */
 .pop-heart {
   position: absolute;
   animation: popFloat linear forwards;
 }
 
+/* Heart animation */
 @keyframes popFloat {
   0% {
     transform: scale(0);
@@ -85,8 +118,15 @@ img {
   }
 }
 
-/* Mobile */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 600px) {
-  h1 { font-size: 28px; }
-  p { font-size: 18px; }
+  h1 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 18px;
+  }
+  #yesText {
+    font-size: 34px;
+  }
 }
