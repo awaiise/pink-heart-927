@@ -6,42 +6,43 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body onclick="startMusic()">
+<body onclick="enableSound()">
 
 <!-- BACKGROUND MUSIC -->
-<audio id="bgMusic" loop playsinline>
+<audio id="bgMusic" autoplay loop muted playsinline>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
   <h1>I LOVE YOU JANAM 💖</h1>
 
-  <!-- SLIDESHOW IMAGE -->
   <img id="slide" src="assets/photo1.jpg">
 
   <br><br>
 
-  <!-- NEXT MEMORY BUTTON -->
   <button id="nextBtn" onclick="nextSlide()">Next Memory 💫</button>
 
   <br><br>
 
-  <!-- LETTER BUTTON (HIDDEN INITIALLY) -->
   <button id="letterBtn" style="display:none;" onclick="goLetter()">
     Read My Letter 💌
   </button>
 </div>
 
 <script>
-/* MUSIC */
-function startMusic() {
-  const music = document.getElementById("bgMusic");
-  if (music.paused) {
+/* ===== ENABLE SOUND ON FIRST INTERACTION ===== */
+let soundEnabled = false;
+
+function enableSound() {
+  if (!soundEnabled) {
+    const music = document.getElementById("bgMusic");
+    music.muted = false;
     music.play().catch(() => {});
+    soundEnabled = true;
   }
 }
 
-/* SLIDES */
+/* ===== SLIDES ===== */
 const photos = [
   "assets/photo1.jpg",
   "assets/photo2.jpg",
@@ -51,20 +52,20 @@ const photos = [
 let index = 0;
 
 function nextSlide() {
+  enableSound(); // ensures sound turns on here too
   index++;
 
   if (index < photos.length) {
     document.getElementById("slide").src = photos[index];
   }
 
-  // When last photo reached
   if (index === photos.length - 1) {
     document.getElementById("nextBtn").style.display = "none";
     document.getElementById("letterBtn").style.display = "inline-block";
   }
 }
 
-/* GO TO LETTER */
+/* ===== NAVIGATION ===== */
 function goLetter() {
   window.location.href = "letter.html";
 }
@@ -72,4 +73,3 @@ function goLetter() {
 
 </body>
 </html>
-
