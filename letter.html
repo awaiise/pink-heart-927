@@ -1,68 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>My Letter 💌</title>
+<title>My Love Letter 💌</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body onclick="enableSound()" ontouchstart="enableSound()">
-
-<audio id="bgMusic" autoplay loop muted playsinline>
-  <source src="assets/music.mp3" type="audio/mpeg">
-</audio>
-
+<body>
 <div class="container">
-  <h1>My Love ❤️</h1>
-  <p id="typedText"><span id="cursor">|</span></p>
-  <br>
-  <button onclick="goPromise()">One Last Question 💍</button>
+<h1>My Forever Love ❤️</h1>
+
+<p>
+From the moment you came into my life,  
+everything became brighter.  
+You are my heart, my soul, my forever.  
+
+Thank you for being mine.  
+I promise to love you today, tomorrow, always 💖
+</p>
+
+<h2>Happy Birthday My Queen 👑</h2>
 </div>
-
-<script>
-let soundEnabled = false;
-function enableSound() {
-  if (!soundEnabled) {
-    const music = document.getElementById("bgMusic");
-    music.muted = false;
-    music.play().catch(()=>{});
-    soundEnabled = true;
-  }
-}
-
-const text = `
-My love,
-
-From the moment you came into my life,
-everything changed.
-You became my happiness,
-my peace, my forever.
-
-Happy Birthday ❤️
-`;
-
-let i = 0;
-const speed = 40;
-const typedText = document.getElementById("typedText");
-const cursor = document.getElementById("cursor");
-
-function typeWriter() {
-  if (i < text.length) {
-    cursor.remove();
-    typedText.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
-    typedText.appendChild(cursor);
-    i++;
-    setTimeout(typeWriter, speed);
-  } else {
-    cursor.style.display = "none";
-  }
-}
-typeWriter();
-
-function goPromise() {
-  window.location.href = "promise.html";
-}
-</script>
-
 </body>
 </html>
