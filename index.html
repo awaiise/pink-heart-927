@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Happy Birthday My Love ❤️</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Happy Birthday My Love ❤️</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body onclick="startMusic()">
 
-<audio id="bgMusic" autoplay loop playsinline>
-  <source src="assets/music.mp3" type="audio/mpeg">
-</audio>
+  <!-- MUSIC -->
+  <audio id="bgMusic" loop playsinline>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
 
+  <div class="container">
+    <h1>Happy Birthday My Love 🎂💖</h1>
+    <p>You are my happiness, my peace, my everything.</p>
 
-<div class="hearts"></div>
+    <!-- STEP 1 BUTTON -->
+    <button onclick="goMemories()">Start Our Memories 💞</button>
+  </div>
 
-<div class="container">
-  <h1>Happy Birthday My Love 🎂💖</h1>
-  <p>You are my happiness, my peace, my everything.</p>
+  <script>
+    function startMusic() {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play().catch(() => {});
+      }
+    }
 
-  <button onclick="location.href='memories.html'">Memories 💞</button>
-  <button onclick="location.href='letter.html'">My Letter 💌</button>
-  <button onclick="location.href='promise.html'">My Promise 💍</button>
-</div>
+    function goMemories() {
+      startMusic();
+      window.location.href = "memories.html";
+    }
+  </script>
 
-<script src="script.js"></script>
 </body>
 </html>
