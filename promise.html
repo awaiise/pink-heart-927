@@ -1,67 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>My Promise 💍</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>My Promise ❤️</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body onclick="startMusic()">
+<body>
 
-<audio id="bgMusic" autoplay loop playsinline>
-  <source src="assets/music.mp3" type="audio/mpeg">
-</audio>
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <h1>My Promise To You ❤️</h1>
 
+    <p>I promise to love you endlessly.</p>
+    <p>I promise to stand by you in every moment.</p>
+    <p>I promise to choose you every single day.</p>
 
-<div class="container">
-<h1>My Promise To You ❤️</h1>
+    <br>
 
-<p>
-I promise to love you endlessly.<br>
-I promise to stand by you in every moment.<br>
-I promise to choose you every single day.<br><br>
+    <p><strong>Will you always be mine? 💍❤️</strong></p>
 
-Will you always be mine? 💍❤️
-</p>
+    <button onclick="startHearts()">YES ❤️</button>
+  </div>
 
-<button onclick="startHearts()">YES ❤️</button>
+  <!-- FULL SCREEN CELEBRATION (HIDDEN BY DEFAULT) -->
+  <div id="heartScreen">
+    <div id="yesText">🎉 SHE SAID YES ❤️ 🎉</div>
+  </div>
 
-<div id="heartScreen"></div>
-  <h1>🎉 SHE SAID YES ❤️ 🎉</h1>
-  <p>This love is forever 💖</p>
-</div>
+  <!-- SCRIPT -->
+  <script>
+    function startHearts() {
+      const screen = document.getElementById("heartScreen");
+      screen.style.display = "block";
 
+      for (let i = 0; i < 150; i++) {
+        const heart = document.createElement("div");
+        heart.className = "pop-heart";
+        heart.innerHTML = "❤️";
 
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.fontSize = Math.random() * 30 + 20 + "px";
+        heart.style.animationDuration = Math.random() * 2 + 2 + "s";
 
-<script>
-function startHearts() {
-  const screen = document.getElementById("heartScreen");
-  screen.style.display = "block";
+        screen.appendChild(heart);
 
-  for (let i = 0; i < 150; i++) {
-    let heart = document.createElement("div");
-    heart.innerHTML = "❤️";
-    heart.className = "pop-heart";
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = Math.random() * 100 + "vh";
-    heart.style.fontSize = Math.random() * 30 + 20 + "px";
-    heart.style.animationDuration = Math.random() * 2 + 2 + "s";
-
-    screen.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 4000);
-  }
-}
-</script>
-
-
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
+    }
+  </script>
 
 </body>
 </html>
-
-
-
-
