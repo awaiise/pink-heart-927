@@ -21,22 +21,19 @@
   </div>
 
   <script>
-    let soundEnabled = false;
+let soundEnabled = false;
 
-    function enableSound() {
-      if (!soundEnabled) {
-        const music = document.getElementById("bgMusic");
-        music.muted = false;
-        music.play().catch(() => {});
-        soundEnabled = true;
-      }
-    }
+function enableSound() {
+  if (!soundEnabled) {
+    const music = document.getElementById("bgMusic");
+    music.muted = false;
+    music.play().catch(() => {});
+    soundEnabled = true;
+  }
+}
+</script>
 
-    function goMemories() {
-      enableSound();
-      window.location.href = "memories.html";
-    }
-  </script>
 
 </body>
 </html>
+
