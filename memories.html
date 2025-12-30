@@ -8,22 +8,68 @@
 
 <body onclick="startMusic()">
 
-<audio id="bgMusic" autoplay loop playsinline>
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop playsinline>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
-
 
 <div class="container">
   <h1>I LOVE YOU JANAM 💖</h1>
 
+  <!-- SLIDESHOW IMAGE -->
   <img id="slide" src="assets/photo1.jpg">
 
   <br><br>
-  <button onclick="nextSlide()">Next Memory 💫</button>
+
+  <!-- NEXT MEMORY BUTTON -->
+  <button id="nextBtn" onclick="nextSlide()">Next Memory 💫</button>
+
   <br><br>
-  <button onclick="location.href='letter.html'">Read My Letter 💌</button>
+
+  <!-- LETTER BUTTON (HIDDEN INITIALLY) -->
+  <button id="letterBtn" style="display:none;" onclick="goLetter()">
+    Read My Letter 💌
+  </button>
 </div>
 
-<script src="script.js"></script>
+<script>
+/* MUSIC */
+function startMusic() {
+  const music = document.getElementById("bgMusic");
+  if (music.paused) {
+    music.play().catch(() => {});
+  }
+}
+
+/* SLIDES */
+const photos = [
+  "assets/photo1.jpg",
+  "assets/photo2.jpg",
+  "assets/photo3.jpg"
+];
+
+let index = 0;
+
+function nextSlide() {
+  index++;
+
+  if (index < photos.length) {
+    document.getElementById("slide").src = photos[index];
+  }
+
+  // When last photo reached
+  if (index === photos.length - 1) {
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("letterBtn").style.display = "inline-block";
+  }
+}
+
+/* GO TO LETTER */
+function goLetter() {
+  window.location.href = "letter.html";
+}
+</script>
+
 </body>
 </html>
+
