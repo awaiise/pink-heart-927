@@ -6,20 +6,21 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-<audio autoplay loop>
+<body onclick="startMusic()">
+
+<audio id="bgMusic" loop>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
-<h1>Our Beautiful Memories 💖</h1>
+  <h1>Our Beautiful Memories 💖</h1>
 
-<img id="slide" src="assets/photo1.jpg" width="300">
+  <img id="slide" src="assets/photo1.jpg">
 
-<br><br>
-<button onclick="nextSlide()">Next Memory 💫</button>
-<br><br>
-<button onclick="location.href='letter.html'">Read My Letter 💌</button>
+  <br><br>
+  <button onclick="nextSlide()">Next Memory 💫</button>
+  <br><br>
+  <button onclick="location.href='letter.html'">Read My Letter 💌</button>
 </div>
 
 <script src="script.js"></script>
