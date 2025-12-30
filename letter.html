@@ -2,49 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Love Letter 💌</title>
+<title>My Letter 💌</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body onclick="startMusic()">
+<body onclick="enableSound()" ontouchstart="enableSound()">
 
-<audio id="bgMusic" autoplay loop playsinline>
+<audio id="bgMusic" autoplay loop muted playsinline>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
-
 <div class="container">
-<h1>My Forever Love ❤️</h1>
-
-<p id="typedText"><span id="cursor">|</span></p>
-
-
-<button onclick="location.href='promise.html'">One Last Question 💍</button>
+  <h1>My Love ❤️</h1>
+  <p id="typedText"><span id="cursor">|</span></p>
+  <br>
+  <button onclick="goPromise()">One Last Question 💍</button>
 </div>
 
 <script>
+let soundEnabled = false;
+function enableSound() {
+  if (!soundEnabled) {
+    const music = document.getElementById("bgMusic");
+    music.muted = false;
+    music.play().catch(()=>{});
+    soundEnabled = true;
+  }
+}
+
 const text = `
-My love 💖,
+My love,
 
 From the moment you came into my life,
-everything changed 🥰💞💖.
-You became my happiness 💋💞✨,
-my peace, and my strength.
+everything changed.
+You became my happiness,
+my peace, my forever.
 
-Every smile of yours 🥰
-makes my day brighter,
-and every moment with you
-is my favorite memory 🥰🥰.
-
-I am so grateful to have you in my life meri jaan 💋💞,
-and I promise to love you hamesha 💋💞,
-respect you all the time 🫂🫂,
-and stand by you in every situation 💋💞.
-
-Happy Birthday, my lovely Babyyyy 🎂💖
-You are my today 🥰,
-my tomorrow 🥰,
-and my forever 🥰💞💖.
+Happy Birthday ❤️
 `;
 
 let i = 0;
@@ -55,25 +49,20 @@ const cursor = document.getElementById("cursor");
 function typeWriter() {
   if (i < text.length) {
     cursor.remove();
-    typedText.innerHTML +=
-      text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+    typedText.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
     typedText.appendChild(cursor);
     i++;
     setTimeout(typeWriter, speed);
   } else {
-    cursor.style.display = "none"; // stop cursor at end
+    cursor.style.display = "none";
   }
 }
-
 typeWriter();
+
+function goPromise() {
+  window.location.href = "promise.html";
+}
 </script>
-
-
 
 </body>
 </html>
-
-
-
-
-
